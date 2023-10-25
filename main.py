@@ -3,6 +3,7 @@ api = 'xxxxxxxxxxxxxxxxxx'
 # *** 1. Pythonでローカルサーバーの準備
 
 from bottle import *
+BaseRequest.MEMFILE_MAX = 1024 * 1024
 
 # --- CORSへの対応 https://qiita.com/rysk_lunch/items/d7cc7cd8ab5fa1714312
 
@@ -34,7 +35,8 @@ def message(role, text):
     return { 'role': role, 'content': text }
 
 system = message('system', """
-適当なHTMLファイルから抜き出した文字列を渡すため、概要を抽出して簡潔に内容を日本語で説明をしてください。
+適当なHTMLファイルから抜き出した文字列を渡すため、概要を抽出して内容を簡潔に日本語で説明をしてください。
+また、返答形式は対話形式でお願いします。
 """)
 
 def gpt(text):

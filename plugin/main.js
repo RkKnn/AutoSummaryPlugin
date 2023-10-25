@@ -19,7 +19,7 @@ const postHTML = async () => {
 
 // 毎回要約されると面倒なので、要約ボタンを作成
 const button = createButton()
-buddton.addEventListener('click', () => {
+button.addEventListener('click', () => {
   postHTML().then(ret => console.log(ret));
 })
 document.body.appendChild(button);
