@@ -1,0 +1,10 @@
+{
+  "name": "AutoSummary",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "自動要約",
+  "content_scripts": [{
+    "matches": ["https://*/*"],
+    "js": ["main.js"]
+  }]
+}
